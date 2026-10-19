@@ -94,6 +94,17 @@ input{width:100%;background:var(--c0);border:1px solid var(--line);border-radius
 input:focus{outline:0;border-color:var(--gold)}
 .box .btn{width:100%;margin-top:20px}
 .x{position:absolute;top:14px;right:18px;background:none;border:0;color:var(--gr);font-size:26px;cursor:pointer}
+#legal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
+#legal.on{display:flex}
+.box.legal{max-width:680px;max-height:86vh;overflow-y:auto}
+.legal h3{margin-bottom:4px}
+.upd{color:var(--gr);font-size:13px;margin-bottom:14px}
+.legal ol{padding-left:20px;font-size:14px;color:var(--gr)}
+.legal li{padding:5px 0}
+.legal li b{color:var(--iv)}
+.consent{font-size:12px;color:var(--gr);margin-top:14px}
+.consent a{color:var(--gold);text-decoration:underline}
+.flinks{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px;font-size:14px}
 @media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){nav ul{display:none}.tiles,.grid3,.grid4{grid-template-columns:1fr}.hero{padding-top:56px}section{padding:52px 0}}
 </style>
@@ -147,7 +158,7 @@ input:focus{outline:0;border-color:var(--gold)}
     <div><a href="#" class="logo"><span class="lg big"></span><span class="serif">Baker<i>’</i>s Bridge</span></a><p style="margin-top:10px">Your Home Bakery’s Growth Partner.</p></div>
     <div><p>Instagram: <a href="https://instagram.com/bakers.bridge" target="_blank" rel="noopener">@bakers.bridge</a></p><p><a href="mailto:bakersbridge5@gmail.com">bakersbridge5@gmail.com</a></p><p>WhatsApp: <a href="https://wa.me/918637621801" target="_blank" rel="noopener">+91 86376 21801</a></p><p>Tamil Nadu</p></div>
   </div>
-  <div class="copy">© 2026 BAKER’S BRIDGE. ALL RIGHTS RESERVED.</div>
+  <div class="copy"><div class="flinks"><a href="#" onclick="openLegal('privacy');return false">Privacy Policy</a><a href="#" onclick="openLegal('terms');return false">Terms &amp; Conditions</a></div>© 2026 BAKER’S BRIDGE. ALL RIGHTS RESERVED.</div>
 </div></footer>
 
 <div id="modal" role="dialog" aria-modal="true" aria-label="Join a plan">
@@ -159,6 +170,7 @@ input:focus{outline:0;border-color:var(--gold)}
       <label for="name">Your name</label><input id="name" name="name" required maxlength="60" autocomplete="name">
       <label for="phone">WhatsApp number</label><input id="phone" name="phone" required inputmode="tel" pattern="[0-9+ ]{10,15}" title="Enter a valid phone number" autocomplete="tel">
       <label for="city">City</label><input id="city" name="city" required maxlength="40" autocomplete="address-level2">
+      <p class="consent">By sending this, you agree that Baker’s Bridge may contact you on WhatsApp about it. See our <a href="#" onclick="openLegal('privacy');return false">Privacy Policy</a>.</p>
       <button class="btn" id="msub" type="submit">Send enquiry</button>
     </form>
     <div id="done" hidden>
@@ -169,6 +181,8 @@ input:focus{outline:0;border-color:var(--gold)}
     </div>
   </div>
 </div>
+
+<div id="legal" role="dialog" aria-modal="true" aria-label="Legal"><div class="box legal"><button class="x" aria-label="Close" onclick="closeLegal()">×</button><div id="legalBody"></div></div></div>
 
 <script>
 /* ===== EDIT HERE ===== */
@@ -289,6 +303,47 @@ form.addEventListener("submit", e => {
     $("doneMsg").textContent = (cur.soon ? "We’ll let you know when " + lead.plan + " opens." : "We’ve noted your enquiry about the " + lead.plan + " Package and will contact you soon.");
   }
 });
+
+/* ===== LEGAL (edit OPERATOR once you decide the legal name) ===== */
+const OPERATOR = "Baker’s Bridge";   // later, for example: "Your Full Name, trading as Baker’s Bridge"
+const LEGAL_DATE = "19 October 2026";
+const LEGAL = {
+  privacy: {title:"Privacy Policy", items:[
+    ["Who we are", `This site is operated by ${OPERATOR}, Tamil Nadu, India. Contact: bakersbridge5@gmail.com or WhatsApp +91 86376 21801.`],
+    ["What we collect", "When you fill an enquiry or “Notify me” form: your name, WhatsApp number, city, and the package or feature you chose. If you message us on WhatsApp, we also see what you write there."],
+    ["Why", "To reply to your enquiry, to tell you when a feature opens, and to improve our services. We use your details only for these purposes."],
+    ["Consent", "We collect your details only when you submit a form and agree to be contacted. You can withdraw consent anytime by messaging us."],
+    ["Who else sees it", "WhatsApp (Meta) handles messages you send there. Our site is hosted on GitHub Pages and loads fonts from Google, so these providers may receive technical data such as your IP address. We do not sell or rent your data."],
+    ["On your device", "A copy of what you enter may be saved in your own browser. It is not uploaded to a server."],
+    ["How long we keep it", "Only as long as needed for the purposes above. You can ask us to delete your details anytime."],
+    ["Your rights", "You can ask to see, correct or delete your data, withdraw consent, or make a complaint by emailing us. We will reply within 30 days."],
+    ["Children", "This site is not meant for people under 18."],
+    ["Security", "We take reasonable care, but no online system is completely secure."],
+    ["Changes", "We will update this page and its date when something changes."]
+  ]},
+  terms: {title:"Terms and Conditions", items:[
+    ["About us", `This site and its services are operated by ${OPERATOR}, Tamil Nadu, India.`],
+    ["What we offer", "Training and growth guidance for home bakers through our Starter, Growth and Scale packages. Content is general guidance."],
+    ["No guarantees", "We do not promise or guarantee orders, leads, customers, income or any result. Results depend on your product, effort and market."],
+    ["Enquiries", "Sending an enquiry or “Notify me” request does not create a booking. A package starts only after we confirm the details, fee and schedule with you in writing (WhatsApp counts)."],
+    ["Payments and refunds", "Fees, payment method and refund terms are shared in writing before you pay."],
+    ["Your responsibilities", "Give accurate details. Your bakery’s licences and food safety compliance (including FSSAI and local rules) remain your own responsibility."],
+    ["Other bakers and vendors", "When we list them in future, they are independent. Baker’s Bridge does not make or sell their products and is not responsible for them."],
+    ["Our content", "The name, logo and all content belong to Baker’s Bridge. Please do not copy them without permission."],
+    ["Liability", "To the extent the law allows, we are not liable for indirect losses or losses caused by relying on our guidance."],
+    ["Changes", "We may update these terms and will show the new date."],
+    ["Law", "Indian law applies, and the courts of Tamil Nadu have jurisdiction."]
+  ]}
+};
+const legal = $("legal");
+function openLegal(k){
+  const d = LEGAL[k];
+  $("legalBody").innerHTML = `<h3>${d.title}</h3><p class="upd">Last updated: ${LEGAL_DATE}</p><ol>${d.items.map(([h, t]) => `<li><b>${h}.</b> ${t}</li>`).join("")}</ol>`;
+  legal.classList.add("on");
+}
+function closeLegal(){ legal.classList.remove("on"); }
+legal.addEventListener("click", e => { if (e.target === legal) closeLegal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLegal(); });
 </script>
 </body>
 </html>
