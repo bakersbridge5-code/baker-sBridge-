@@ -84,7 +84,9 @@ footer{padding:56px 0 36px;color:var(--gr);font-size:14px}
 .fgrid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:28px}
 footer a:hover{color:var(--gold)}
 .copy{border-top:1px solid var(--line);padding-top:20px;font-size:12px;letter-spacing:.06em}
-#modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:flex-start;justify-content:center;padding:20px;z-index:50;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#modal .box{margin:auto}
+body:has(#modal.on,#legal.on){overflow:hidden}
 #modal.on{display:flex}
 .box{background:var(--c1);border:1px solid var(--gold);border-radius:22px;padding:32px 28px;width:100%;max-width:430px;position:relative}
 .box h3{font-size:28px}
@@ -143,6 +145,8 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
 .wi{width:54px;height:54px;padding:13px;border-radius:50%;background:rgba(199,169,107,.1);border:1px solid rgba(199,169,107,.4);color:var(--gold);margin-bottom:14px}
 .wc h4{font-size:17px;margin-bottom:4px}.wc p{color:var(--gr);font-size:14px}
 .why .note{margin-top:22px}
+.dc{position:relative;overflow:hidden}.dc>.wrap{position:relative;z-index:1}.dc>.deco{opacity:.13}
+@media(max-width:760px){.dc>.deco:not(:first-of-type){display:none}.dc>.deco:first-of-type{width:46px!important;height:46px!important;right:4%!important;left:auto!important;top:4px!important;bottom:auto!important}}
 @media(max-width:760px){.d1,.d3{display:none}.d2{right:4%;top:-44px}}
 @media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){nav ul{display:none}.tiles,.grid3,.grid4{grid-template-columns:1fr}.hero{padding-top:56px}section{padding:52px 0}}
@@ -157,7 +161,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
   <a href="#plans" class="btn">View packages</a>
 </div></nav>
 
-<header class="hero"><div class="wrap">
+<header class="hero dc"><span class="deco" style="width:160px;height:160px;right:7%;top:60px;transform:rotate(8deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cake"/></svg></span><span class="deco" style="width:90px;height:90px;right:24%;bottom:24px;transform:rotate(-18deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-whisk"/></svg></span><span class="deco" style="width:74px;height:74px;right:3%;bottom:36px;transform:rotate(12deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cupcake"/></svg></span><div class="wrap">
   <h1>Your Home Bakery’s <em>Growth Partner</em></h1>
   <p class="lead">Learn, set up, market, sell and grow. One bridge between home bakers, customers and vendors.</p>
 </div></header>
@@ -181,7 +185,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
     <p class="note">Listing does not guarantee orders. Bakers are listed by Baker’s Bridge, and we don’t make, sell or deliver their products. Home baker? <a href="#" class="lnk" onclick="openJoin();return false">Apply to be listed</a>.</p></div>
 </div></section>
 
-<section id="seasonal"><div class="wrap">
+<section id="seasonal" class="dc"><span class="deco" style="width:62px;height:62px;right:3%;top:8px;transform:rotate(10deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-gift"/></svg></span><span class="deco" style="width:54px;height:54px;right:11%;top:12px;transform:rotate(-12deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-pipe"/></svg></span><span class="deco" style="width:50px;height:50px;right:18%;top:10px;transform:rotate(6deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cup"/></svg></span><div class="wrap">
   <div class="head">
     <div><span class="eyebrow">Seasonal celebrations</span><h2 style="margin-top:8px">Festivals to bake for</h2></div>
     <p>Upcoming occasions, sorted by date. Pre-orders open about six weeks before each festival.</p>
@@ -189,7 +193,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
   <div class="row" id="festRow"></div>
 </div></section>
 
-<section class="plans" id="plans"><div class="wrap">
+<section class="plans dc" id="plans"><span class="deco" style="width:64px;height:64px;left:3%;top:6px;transform:rotate(-8deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-rollpin"/></svg></span><span class="deco" style="width:56px;height:56px;left:11%;top:10px;transform:rotate(10deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-tin"/></svg></span><span class="deco" style="width:52px;height:52px;left:18%;top:12px;transform:rotate(-14deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-whisk"/></svg></span><div class="wrap">
   <div class="head">
     <div><span class="eyebrow">Packages</span><h2 style="margin-top:8px">Choose how you grow</h2></div>
     <p>Training and growth support for every stage of a home bakery. Pick a package and send your enquiry on WhatsApp.</p>
@@ -199,7 +203,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
   <p class="note">Packages offer training, guidance and support. Baker’s Bridge does not guarantee orders, leads or revenue; results depend on your product, effort and market.</p>
 </div></section>
 
-<section id="soon"><div class="wrap">
+<section id="soon" class="dc"><span class="deco" style="width:62px;height:62px;right:3%;top:8px;transform:rotate(8deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-hat"/></svg></span><span class="deco" style="width:56px;height:56px;right:11%;top:10px;transform:rotate(-10deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cupcake"/></svg></span><span class="deco" style="width:54px;height:54px;right:18%;top:10px;transform:rotate(6deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cake"/></svg></span><div class="wrap">
   <div class="head">
     <div><span class="eyebrow">What’s next</span><h2 style="margin-top:8px">Coming soon to Baker’s Bridge</h2></div>
     <p>We’re building more for home bakers. Tell us what you want first and we’ll let you know when it opens.</p>
@@ -350,8 +354,9 @@ fSpec.innerHTML = '<option value="">All specialities</option>' + [...new Set(BAK
 fCity.onchange = fSpec.onchange = renderBakers;
 renderBakers();
 
-const TOOLS = [["whisk","Whisk"],["rollpin","Rolling pin"],["pipe","Piping bag"],["tin","Cake tin"],["cup","Measuring cup"],["cupcake","Cupcakes"],["cake","Celebration cakes"],["hat","Home chefs"],["gift","Festival boxes"],["mega","Get found"],["cam","Show your work"],["chat","WhatsApp enquiries"]];
-$("mqt").innerHTML = [...TOOLS, ...TOOLS].map(t => `<span><svg class="ic" viewBox="0 0 64 64"><use href="#i-${t[0]}"/></svg>${t[1]}</span>`).join("");
+const TOOLS = [["whisk","Whisk"],["rollpin","Rolling pin"],["pipe","Piping bag"],["tin","Cake tin"],["cup","Measuring cup"],["cupcake","Cupcakes"],["cake","Celebration cakes"],["hat","Home chefs"]];
+const strip = (id, a) => $(id).innerHTML = [...a, ...a].map(t => `<span><svg class="ic" viewBox="0 0 64 64"><use href="#i-${t[0]}"/></svg>${t[1]}</span>`).join("");
+strip("mqt", TOOLS);
 
 // Subscription flow
 const modal = $("modal"), form = $("lead");
@@ -360,7 +365,7 @@ function openModal(title, label, btn, nl, join){
   $("mtitle").textContent = title; $("mplan").textContent = label; $("msub").textContent = btn;
   $("nlab").textContent = nl || "Anything we should know? (optional)";
   $("joinChk").hidden = !join; $("jc").required = !!join; $("jc").checked = false; form.note.value = "";
-  form.hidden = false; $("done").hidden = true; modal.classList.add("on"); $("name").focus();
+  form.hidden = false; $("done").hidden = true; modal.classList.add("on"); $("name").focus({preventScroll:true});
 }
 function openPlan(id){ cur = PACKAGES.find(p => p.id === id); openModal("Package enquiry", cur.name + " Package", "Send enquiry"); }
 function openSoon(id){ cur = SOON.find(x => x.id === id); openModal("Get notified", cur.name + " · " + cur.tag, "Notify me"); }
