@@ -91,7 +91,7 @@ footer a:hover{color:var(--gold)}
 .copy{border-top:1px solid var(--line);padding-top:20px;font-size:12px;letter-spacing:.06em}
 #modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:flex-start;justify-content:center;padding:20px;z-index:50;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 #modal .box{margin:auto}
-body:has(#modal.on,#legal.on){overflow:hidden}
+body:has(#modal.on,#legal.on,#about.on){overflow:hidden}
 #modal.on{display:flex}
 .box{background:var(--c1);border:1px solid var(--gold);border-radius:22px;padding:32px 28px;width:100%;max-width:430px;position:relative}
 .box h3{font-size:28px}
@@ -101,10 +101,10 @@ input{width:100%;background:var(--c0);border:1px solid var(--line);border-radius
 input:focus{outline:0;border-color:var(--gold)}
 .box .btn{width:100%;margin-top:20px}
 .x{position:absolute;top:14px;right:18px;background:none;border:0;color:var(--gr);font-size:26px;cursor:pointer}
-#legal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
-#legal.on{display:flex}
+#legal,#about{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
+#legal.on,#about.on{display:flex}
 .box.legal{max-width:680px;max-height:86vh;overflow-y:auto}
-.legal h3{margin-bottom:4px}
+.legal h3{margin-bottom:4px}.ap{color:var(--gr);font-size:14px}.al{padding-left:20px;margin:0;font-size:14px;color:var(--gr)}.al li{padding:4px 0}.al b{color:var(--iv)}.ah{font:400 20px "DM Serif Display",serif;margin:18px 0 4px}
 .upd{color:var(--gr);font-size:13px;margin-bottom:14px}
 .legal ol{padding-left:20px;font-size:14px;color:var(--gr)}
 .legal li{padding:5px 0}
@@ -163,7 +163,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
 
 <nav><div class="wrap">
   <a href="#" class="logo"><span class="lg" aria-hidden="true"></span><span class="serif">Baker<i>’</i>s Bridge</span></a>
-  <ul><li><a href="#about">About</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li></ul>
+  <ul><li><a href="#" onclick="openAbout();return false">About</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li></ul>
   <a href="#plans" class="btn">View packages</a>
 </div></nav>
 
@@ -171,20 +171,6 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
   <h1>Your Home Bakery’s <em>Growth Partner</em></h1>
   <p class="lead">Learn, set up, market, sell and grow. One bridge between home bakers, customers and vendors.</p>
 </div></header>
-
-<section id="about"><div class="wrap">
-  <div class="head">
-    <div><span class="eyebrow">About Baker’s Bridge</span><h2 style="margin-top:8px">Learn, set up and grow your home bakery</h2></div>
-    <p>Baker’s Bridge is a growth partner for home bakers in Tamil Nadu. We help you learn the basics, set up and price your bakery, build your brand and reach customers.</p>
-  </div>
-  <h3 class="sub">What we offer</h3>
-  <div class="wg"><div class="wc"><h4>Training packages</h4><p>Starter, Growth and Scale packages cover baking basics, home bakery setup, costing and pricing, menu development, branding, social media and lead generation.</p><p><a class="lnk" href="#plans">See packages</a></p></div><div class="wc"><h4>Find bakers</h4><p>Customers can browse home bakers by city and speciality and send an enquiry. Bakers apply to be listed, and we show only the details they approve.</p><p><a class="lnk" href="#bakers">Browse bakers</a></p></div><div class="wc"><h4>Festival calendar</h4><p>See upcoming festivals such as Diwali, Christmas and Pongal, so you can plan seasonal menus ahead.</p><p><a class="lnk" href="#seasonal">See the calendar</a></p></div></div>
-  <h3 class="sub">Who it helps</h3>
-  <div class="wg"><div class="wc"><h4>Beginners</h4><p>Planning to start a home bakery? The Starter package covers baking basics, tools, costing and a startup roadmap.</p></div><div class="wc"><h4>Existing home bakers</h4><p>The Growth package covers menu development, branding, social media marketing and lead generation.</p></div><div class="wc"><h4>Established bakeries</h4><p>The Scale package adds content production, marketing and sales support for bakeries ready to grow.</p></div><div class="wc"><h4>Customers</h4><p>Looking for a home baker near you? Browse listed bakers and send an enquiry.</p></div></div>
-  <h3 class="sub">How it works</h3>
-  <div class="wg"><div class="wc"><span class="sn">01</span><h4 style="margin-top:8px">Choose</h4><p>Pick a package, or browse listed bakers.</p></div><div class="wc"><span class="sn">02</span><h4 style="margin-top:8px">Send an enquiry</h4><p>The form opens WhatsApp with your details filled in.</p></div><div class="wc"><span class="sn">03</span><h4 style="margin-top:8px">We confirm in writing</h4><p>Fees, schedule and details are agreed with you in writing before anything starts.</p></div></div>
-  <p class="note">Baker’s Bridge offers training, guidance and listings. We do not guarantee orders, leads or revenue.</p>
-</div></section>
 
 <section id="bakers" class="bsec"><div class="wrap">
   <span class="deco d1"><svg class="ic" viewBox="0 0 64 64"><use href="#i-whisk"/></svg></span><span class="deco d2"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cupcake"/></svg></span><span class="deco d3"><svg class="ic" viewBox="0 0 64 64"><use href="#i-rollpin"/></svg></span>
@@ -236,7 +222,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
     <div><a href="#" class="logo"><span class="lg big" aria-hidden="true"></span><span class="serif">Baker<i>’</i>s Bridge</span></a><p style="margin-top:10px">Your Home Bakery’s Growth Partner.</p></div>
     <div><p>Instagram: <a href="https://instagram.com/bakers.bridge" target="_blank" rel="noopener">@bakers.bridge</a></p><p><a href="mailto:bakersbridge5@gmail.com">bakersbridge5@gmail.com</a></p><p>WhatsApp: <a href="https://wa.me/918637621801" target="_blank" rel="noopener">+91 86376 21801</a></p><p>Tamil Nadu</p></div>
   </div>
-  <div class="copy"><div class="flinks"><a href="#" onclick="openLegal('privacy');return false">Privacy Policy</a><a href="#" onclick="openLegal('terms');return false">Terms &amp; Conditions</a></div>© 2026 BAKER’S BRIDGE. ALL RIGHTS RESERVED.</div>
+  <div class="copy"><div class="flinks"><a href="#" onclick="openAbout();return false">About</a><a href="#" onclick="openLegal('privacy');return false">Privacy Policy</a><a href="#" onclick="openLegal('terms');return false">Terms &amp; Conditions</a></div>© 2026 BAKER’S BRIDGE. ALL RIGHTS RESERVED.</div>
 </div></footer>
 
 <div id="modal" role="dialog" aria-modal="true" aria-label="Join a plan">
@@ -261,6 +247,19 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
     </div>
   </div>
 </div>
+
+<div id="about" role="dialog" aria-modal="true" aria-label="About Baker’s Bridge"><div class="box legal"><button class="x" aria-label="Close" onclick="closeAbout()">×</button>
+<h3>About Baker’s Bridge</h3>
+<p class="upd">Learn, set up and grow your home bakery</p>
+<p class="ap">Baker’s Bridge is a growth partner for home bakers in Tamil Nadu. We help you learn the basics, set up and price your bakery, build your brand and reach customers.</p>
+<h4 class="ah">What we offer</h4>
+<ul class="al"><li><b>Training packages.</b> Starter, Growth and Scale packages cover baking basics, home bakery setup, costing and pricing, menu development, branding, social media and lead generation. <a class="lnk" href="#plans" onclick="closeAbout()">See packages</a></li><li><b>Find bakers.</b> Customers can browse home bakers by city and speciality and send an enquiry. Bakers apply to be listed, and we show only the details they approve. <a class="lnk" href="#bakers" onclick="closeAbout()">Browse bakers</a></li><li><b>Festival calendar.</b> See upcoming festivals such as Diwali, Christmas and Pongal, so you can plan seasonal menus ahead. <a class="lnk" href="#seasonal" onclick="closeAbout()">See the calendar</a></li></ul>
+<h4 class="ah">Who it helps</h4>
+<ul class="al"><li><b>Beginners.</b> The Starter package covers baking basics, tools, costing and a startup roadmap.</li><li><b>Existing home bakers.</b> The Growth package covers menu development, branding, social media marketing and lead generation.</li><li><b>Established bakeries.</b> The Scale package adds content production, marketing and sales support.</li><li><b>Customers.</b> Browse listed bakers and send an enquiry.</li></ul>
+<h4 class="ah">How it works</h4>
+<ol class="al"><li><b>Choose.</b> Pick a package, or browse listed bakers.</li><li><b>Send an enquiry.</b> The form opens WhatsApp with your details filled in.</li><li><b>We confirm in writing.</b> Fees, schedule and details are agreed with you in writing before anything starts.</li></ol>
+<p class="upd" style="margin-top:16px">Baker’s Bridge offers training, guidance and listings. We do not guarantee orders, leads or revenue.</p>
+</div></div>
 
 <div id="legal" role="dialog" aria-modal="true" aria-label="Legal"><div class="box legal"><button class="x" aria-label="Close" onclick="closeLegal()">×</button><div id="legalBody"></div></div></div>
 
@@ -461,6 +460,13 @@ function openLegal(k){
 function closeLegal(){ legal.classList.remove("on"); }
 legal.addEventListener("click", e => { if (e.target === legal) closeLegal(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeLegal(); });
+const aboutEl = $("about");
+function openAbout(){ aboutEl.classList.add("on"); }
+function closeAbout(){ aboutEl.classList.remove("on"); }
+aboutEl.addEventListener("click", e => { if (e.target === aboutEl) closeAbout(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeAbout(); });
+if (location.hash === "#privacy" || location.hash === "#terms") openLegal(location.hash.slice(1));
+if (location.hash === "#about") openAbout();
 </script>
 </body>
 </html>
