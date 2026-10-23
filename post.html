@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<main><article class="post"><div class="wrap narrow">
+  <a class="lnk" href="/blog/">← All posts</a>
+  <h1>{{ page.title }}</h1>
+  <p class="meta">{{ page.date | date: "%-d %B %Y" }} · Baker’s Bridge</p>
+  {% if page.image != blank %}<img class="cover" src="{{ page.image }}" alt="{{ page.image_alt | default: page.title | escape }}">{% endif %}
+  <div class="pbody">{{ content }}</div>
+  <div class="cta"><h3>Want help growing your home bakery?</h3><p>Baker’s Bridge offers training packages and a bakers directory for home bakers in Tamil Nadu.</p><a class="btn" href="/#plans">See packages</a></div>
+</div></article></main>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"mainEntityOfPage":{{ page.url | absolute_url | jsonify }},"author":{"@type":"Organization","name":"Baker’s Bridge"},"publisher":{"@type":"Organization","name":"Baker’s Bridge","url":"https://www.bakersbridge.in/"}}</script>

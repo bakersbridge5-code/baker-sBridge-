@@ -1,0 +1,12 @@
+title: Baker’s Bridge
+url: https://www.bakersbridge.in
+timezone: Asia/Kolkata
+permalink: /blog/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - README.md

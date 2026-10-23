@@ -175,7 +175,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
 
 <nav><div class="wrap">
   <a href="#" class="logo"><span class="lg" aria-hidden="true"></span><span class="serif">Baker<i>’</i>s Bridge</span></a>
-  <ul><li><a href="#" onclick="openAbout();return false">About</a></li><li><a href="#" onclick="openWhy();return false">Why list your bakery</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li></ul>
+  <ul><li><a href="#" onclick="openAbout();return false">About</a></li><li><a href="#" onclick="openWhy();return false">Why list your bakery</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li><li><a href="blog/">Blog</a></li></ul>
   <a href="#plans" class="btn">View packages</a>
 </div></nav>
 
@@ -231,7 +231,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
 <footer><div class="wrap">
   <div class="fg">
     <div class="fb"><a href="#" class="logo"><span class="lg big" aria-hidden="true"></span><span class="serif">Baker<i>’</i>s Bridge</span></a><p>Your Home Bakery’s Growth Partner.</p></div>
-    <div><h4 class="fh">Explore</h4><ul class="fl"><li><a href="#" onclick="openAbout();return false">About</a></li><li><a href="#" onclick="openWhy();return false">Why list your bakery</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li></ul></div>
+    <div><h4 class="fh">Explore</h4><ul class="fl"><li><a href="#" onclick="openAbout();return false">About</a></li><li><a href="#" onclick="openWhy();return false">Why list your bakery</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li><li><a href="blog/">Blog</a></li></ul></div>
     <div><h4 class="fh">Contact</h4><ul class="fl fcn"><li><span class="ci"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cam"/></svg></span><a href="https://instagram.com/bakers.bridge" target="_blank" rel="noopener">@bakers.bridge</a></li><li><span class="ci"><svg class="ic" viewBox="0 0 64 64"><use href="#i-mail"/></svg></span><a href="mailto:bakersbridge5@gmail.com">bakersbridge5@gmail.com</a></li><li><span class="ci"><svg class="ic" viewBox="0 0 64 64"><use href="#i-phone"/></svg></span><a href="https://wa.me/918637621801" target="_blank" rel="noopener">+91 86376 21801 (WhatsApp)</a></li><li><span class="ci"><svg class="ic" viewBox="0 0 64 64"><use href="#i-pin"/></svg></span><span>Tamil Nadu</span></li></ul></div>
   </div>
   <div class="copy"><div class="flinks"><a href="#" onclick="openLegal('privacy');return false">Privacy Policy</a><a href="#" onclick="openLegal('terms');return false">Terms &amp; Conditions</a></div><span>© 2026 BAKER’S BRIDGE. ALL RIGHTS RESERVED.</span></div>
@@ -486,6 +486,7 @@ whyEl.addEventListener("click", e => { if (e.target === whyEl) closeWhy(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeWhy(); });
 if (location.hash === "#privacy" || location.hash === "#terms") openLegal(location.hash.slice(1));
 if (location.hash === "#about") openAbout();
+if (location.hash === "#why") openWhy();
 </script>
 </body>
 </html>

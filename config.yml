@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: bakersbridge5-code/baker-sBridge-
+  branch: main
+site_url: https://www.bakersbridge.in
+media_folder: images/blog
+public_folder: /images/blog
+collections:
+  - name: posts
+    label: Blog posts
+    label_singular: Blog post
+    folder: _posts
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title (write in English letters, it becomes the web address), widget: string }
+      - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { name: description, label: Short description (shown on Google and in the blog list), hint: "Write one or two clear sentences, about 120 to 155 characters.", widget: text }
+      - { name: image, label: Cover photo (optional), widget: image, required: false }
+      - { name: image_alt, label: Describe the cover photo (optional), widget: string, required: false }
+      - { name: published, label: Publish this post (turn off to keep it as a draft), widget: boolean, default: true }
+      - { name: body, label: Post, widget: markdown }
