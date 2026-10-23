@@ -88,10 +88,10 @@ section{padding:72px 0}
 footer{padding:56px 0 36px;color:var(--gr);font-size:14px}
 .fgrid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:28px}
 footer a:hover{color:var(--gold)}
-.copy{border-top:1px solid var(--line);padding-top:20px;font-size:12px;letter-spacing:.06em}
+.copy{border-top:1px solid var(--line);padding-top:20px;font-size:12px;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}.copy .flinks{margin:0;font-size:13px;letter-spacing:0}
 #modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:flex-start;justify-content:center;padding:20px;z-index:50;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 #modal .box{margin:auto}
-body:has(#modal.on,#legal.on,#about.on){overflow:hidden}
+body:has(#modal.on,#legal.on,#about.on,#why.on){overflow:hidden}
 #modal.on{display:flex}
 .box{background:var(--c1);border:1px solid var(--gold);border-radius:22px;padding:32px 28px;width:100%;max-width:430px;position:relative}
 .box h3{font-size:28px}
@@ -101,8 +101,8 @@ input{width:100%;background:var(--c0);border:1px solid var(--line);border-radius
 input:focus{outline:0;border-color:var(--gold)}
 .box .btn{width:100%;margin-top:20px}
 .x{position:absolute;top:14px;right:18px;background:none;border:0;color:var(--gr);font-size:26px;cursor:pointer}
-#legal,#about{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
-#legal.on,#about.on{display:flex}
+#legal,#about,#why{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
+#legal.on,#about.on,#why.on{display:flex}
 .box.legal{max-width:680px;max-height:86vh;overflow-y:auto}
 .legal h3{margin-bottom:4px}.ap{color:var(--gr);font-size:14px}.al{padding-left:20px;margin:0;font-size:14px;color:var(--gr)}.al li{padding:4px 0}.al b{color:var(--iv)}.ah{font:400 20px "DM Serif Display",serif;margin:18px 0 4px}
 .upd{color:var(--gr);font-size:13px;margin-bottom:14px}
@@ -136,34 +136,46 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
 .deco{position:absolute;color:var(--gold);opacity:.16;pointer-events:none}
 .d1{width:84px;height:84px;right:1%;top:-62px;transform:rotate(18deg)}.d2{width:60px;height:60px;right:23%;top:-48px;transform:rotate(-14deg)}.d3{width:76px;height:76px;right:11%;top:-60px;transform:rotate(8deg)}
 .mq{overflow:hidden;margin-bottom:28px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.mqt{display:flex;gap:14px;width:max-content;animation:mq 45s linear infinite}
+.mqt{display:flex;gap:14px;width:max-content;animation:mq 60s linear infinite}
 .mqt span{display:flex;align-items:center;gap:10px;padding:9px 18px 9px 12px;border:1px solid var(--line);border-radius:999px;background:var(--c1);font-size:13px;font-weight:600;white-space:nowrap}
-.mqt svg{width:28px;height:28px;color:var(--gold)}
+.mqt span::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--gold)}
 @keyframes mq{to{transform:translateX(calc(-50% - 7px))}}
 @media(prefers-reduced-motion:reduce){.mqt{animation:none}}
 .emb{width:92px;height:92px;margin:0 auto 20px;padding:22px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);background:rgba(199,169,107,.08);box-shadow:0 0 0 10px rgba(199,169,107,.05)}
 .bk{transition:.25s}.bk:hover{border-color:var(--gold);transform:translateY(-4px)}
-.sub{font-size:26px;margin:36px 0 16px}#about .sub:first-of-type{margin-top:0}.sn{color:var(--gold);font:13px "DM Serif Display",serif;letter-spacing:.2em}.wc .lnk{font-size:14px;margin-top:10px;display:inline-block}
-.why{margin-top:48px}.why>h3{font-size:30px;margin-bottom:18px}
 .wg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .wc{background:var(--c1);border:1px solid var(--line);border-radius:18px;padding:22px;transition:.25s}
 .wc:hover{border-color:var(--gold);transform:translateY(-4px)}
 .wi{width:54px;height:54px;padding:13px;border-radius:50%;background:rgba(199,169,107,.1);border:1px solid rgba(199,169,107,.4);color:var(--gold);margin-bottom:14px}
 .wc h4{font-size:17px;margin-bottom:4px}.wc p{color:var(--gr);font-size:14px}
-.why .note{margin-top:22px}
 .dc{position:relative;overflow:hidden}.dc>.wrap{position:relative;z-index:1}.dc>.deco{opacity:.13}
 @media(max-width:760px){.dc>.deco:not(:first-of-type){display:none}.dc>.deco:first-of-type{width:46px!important;height:46px!important;right:4%!important;left:auto!important;top:4px!important;bottom:auto!important}}
 @media(max-width:760px){.d1,.d3{display:none}.d2{right:4%;top:-44px}}
+.fg{display:grid;grid-template-columns:1.3fr .8fr 1.2fr;gap:40px;margin-bottom:36px}
+.fb p{margin-top:14px}
+.fh{font:700 12px Manrope,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.fl{list-style:none;padding:0;display:grid;gap:12px}
+.fcn li{display:flex;align-items:center;gap:12px}
+.ci{flex:none;width:38px;height:38px;padding:9px;border-radius:50%;border:1px solid rgba(199,169,107,.4);background:rgba(199,169,107,.08);color:var(--gold)}
+.vm{display:grid;grid-template-columns:1.1fr 1fr;background:var(--c1);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.vml{padding:38px 34px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.vml h3{font-size:36px;line-height:1.1}.vml p{color:var(--gr);max-width:380px}
+.vmr{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:26px;align-content:center;border-left:1px solid var(--line);background:radial-gradient(ellipse at 80% 0,rgba(199,169,107,.1),transparent 65%)}
+.vt{text-align:center;padding:22px 8px;border:1px solid var(--line);border-radius:16px;background:var(--c0);font-weight:700;font-size:14px}
+.vt .wi{margin:0 auto 10px}
+@media(max-width:1000px){nav ul{gap:16px;font-size:13px}}
+@media(max-width:900px){.vm{grid-template-columns:1fr}.vmr{border-left:0;border-top:1px solid var(--line)}}
+@media(max-width:760px){.fg{grid-template-columns:1fr;gap:28px}.vml{padding:30px 24px}}
 @media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){nav ul{display:none}.tiles,.grid3,.grid4{grid-template-columns:1fr}.hero{padding-top:56px}section{padding:52px 0}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-whisk" viewBox="0 0 64 64"><path d="M32 4v14M32 18C14 24 14 50 32 60 50 50 50 24 32 18zM32 18C24 28 24 48 32 60M32 18C40 28 40 48 32 60"/></symbol><symbol id="i-rollpin" viewBox="0 0 64 64"><rect x="14" y="20" width="36" height="24" rx="5"/><path d="M10 32h4M50 32h4"/><rect x="2" y="27" width="8" height="10" rx="3"/><rect x="54" y="27" width="8" height="10" rx="3"/></symbol><symbol id="i-pipe" viewBox="0 0 64 64"><path d="M12 8h40L38 44H26zM26 44l6 12 6-12M20 22c4 3 8-3 12 0s8 3 12 0"/></symbol><symbol id="i-tin" viewBox="0 0 64 64"><ellipse cx="32" cy="20" rx="22" ry="8"/><path d="M10 20v26c0 5 10 9 22 9s22-4 22-9V20M10 33c0 5 10 9 22 9s22-4 22-9"/></symbol><symbol id="i-cup" viewBox="0 0 64 64"><path d="M12 10h32l-4 44H16zM44 20h6c6 0 6 16 0 16h-7M20 24h8M20 34h8M20 44h8"/></symbol><symbol id="i-cupcake" viewBox="0 0 64 64"><path d="M18 34h28l-4 22H22zM14 34c-4-14 8-22 18-22s22 8 18 22zM26 40l1 10M32 40v10M38 40l-1 10"/><circle cx="32" cy="7" r="3"/></symbol><symbol id="i-cake" viewBox="0 0 64 64"><rect x="8" y="36" width="48" height="18" rx="3"/><rect x="16" y="22" width="32" height="14" rx="3"/><path d="M8 44c6 4 10 4 16 0s10 4 16 0 10 4 16 0M32 22v-8M32 14c-3-3 0-8 0-8s3 5 0 8z"/></symbol><symbol id="i-hat" viewBox="0 0 64 64"><path d="M18 42V28C10 26 8 14 17 12 19 4 30 4 32 10 35 3 47 5 47 13 55 15 55 26 47 28V42zM18 50h29"/></symbol><symbol id="i-gift" viewBox="0 0 64 64"><rect x="8" y="26" width="48" height="30" rx="3"/><path d="M6 18h52v8H6zM32 18v38M32 18C22 18 18 8 25 8c6 0 7 10 7 10zM32 18c10 0 14-10 7-10-6 0-7 10-7 10z"/></symbol><symbol id="i-mega" viewBox="0 0 64 64"><path d="M8 26v12h10l24 12V14L18 26zM50 24c4 5 4 11 0 16M18 38l4 16h8l-4-15"/></symbol><symbol id="i-cam" viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="14"/><circle cx="32" cy="32" r="11"/><circle cx="46" cy="18" r="2"/></symbol><symbol id="i-chat" viewBox="0 0 64 64"><path d="M8 12h48v32H30l-12 10V44H8zM22 28h2M31 28h2M40 28h2"/></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-whisk" viewBox="0 0 64 64"><path d="M32 4v14M32 18C14 24 14 50 32 60 50 50 50 24 32 18zM32 18C24 28 24 48 32 60M32 18C40 28 40 48 32 60"/></symbol><symbol id="i-rollpin" viewBox="0 0 64 64"><rect x="14" y="20" width="36" height="24" rx="5"/><path d="M10 32h4M50 32h4"/><rect x="2" y="27" width="8" height="10" rx="3"/><rect x="54" y="27" width="8" height="10" rx="3"/></symbol><symbol id="i-pipe" viewBox="0 0 64 64"><path d="M12 8h40L38 44H26zM26 44l6 12 6-12M20 22c4 3 8-3 12 0s8 3 12 0"/></symbol><symbol id="i-tin" viewBox="0 0 64 64"><ellipse cx="32" cy="20" rx="22" ry="8"/><path d="M10 20v26c0 5 10 9 22 9s22-4 22-9V20M10 33c0 5 10 9 22 9s22-4 22-9"/></symbol><symbol id="i-cup" viewBox="0 0 64 64"><path d="M12 10h32l-4 44H16zM44 20h6c6 0 6 16 0 16h-7M20 24h8M20 34h8M20 44h8"/></symbol><symbol id="i-cupcake" viewBox="0 0 64 64"><path d="M18 34h28l-4 22H22zM14 34c-4-14 8-22 18-22s22 8 18 22zM26 40l1 10M32 40v10M38 40l-1 10"/><circle cx="32" cy="7" r="3"/></symbol><symbol id="i-cake" viewBox="0 0 64 64"><rect x="8" y="36" width="48" height="18" rx="3"/><rect x="16" y="22" width="32" height="14" rx="3"/><path d="M8 44c6 4 10 4 16 0s10 4 16 0 10 4 16 0M32 22v-8M32 14c-3-3 0-8 0-8s3 5 0 8z"/></symbol><symbol id="i-hat" viewBox="0 0 64 64"><path d="M18 42V28C10 26 8 14 17 12 19 4 30 4 32 10 35 3 47 5 47 13 55 15 55 26 47 28V42zM18 50h29"/></symbol><symbol id="i-gift" viewBox="0 0 64 64"><rect x="8" y="26" width="48" height="30" rx="3"/><path d="M6 18h52v8H6zM32 18v38M32 18C22 18 18 8 25 8c6 0 7 10 7 10zM32 18c10 0 14-10 7-10-6 0-7 10-7 10z"/></symbol><symbol id="i-mega" viewBox="0 0 64 64"><path d="M8 26v12h10l24 12V14L18 26zM50 24c4 5 4 11 0 16M18 38l4 16h8l-4-15"/></symbol><symbol id="i-cam" viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="14"/><circle cx="32" cy="32" r="11"/><circle cx="46" cy="18" r="2"/></symbol><symbol id="i-chat" viewBox="0 0 64 64"><path d="M8 12h48v32H30l-12 10V44H8zM22 28h2M31 28h2M40 28h2"/></symbol><symbol id="i-wheat" viewBox="0 0 64 64"><path d="M32 60V22M32 22c-8-2-10-10-8-16 6 1 10 7 8 16zM32 22c8-2 10-10 8-16-6 1-10 7-8 16zM32 38c-8-2-12-8-10-14 6 1 12 5 10 14zM32 38c8-2 12-8 10-14-6 1-12 5-10 14z"/></symbol><symbol id="i-box" viewBox="0 0 64 64"><path d="M8 20L32 8l24 12v26L32 58 8 46zM8 20l24 12 24-12M32 32v26"/></symbol><symbol id="i-mail" viewBox="0 0 64 64"><rect x="6" y="12" width="52" height="40" rx="6"/><path d="M8 16l24 20 24-20"/></symbol><symbol id="i-phone" viewBox="0 0 64 64"><path d="M14 8h12l4 14-8 5c4 8 8 12 16 16l5-8 14 4v12c0 4-4 8-8 8C26 56 8 38 8 14c0-4 2-6 6-6z"/></symbol><symbol id="i-pin" viewBox="0 0 64 64"><path d="M32 58S14 40 14 26a18 18 0 0 1 36 0c0 14-18 32-18 32z"/><circle cx="32" cy="26" r="7"/></symbol></defs></svg>
 
 <nav><div class="wrap">
   <a href="#" class="logo"><span class="lg" aria-hidden="true"></span><span class="serif">Baker<i>’</i>s Bridge</span></a>
-  <ul><li><a href="#" onclick="openAbout();return false">About</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li></ul>
+  <ul><li><a href="#" onclick="openAbout();return false">About</a></li><li><a href="#" onclick="openWhy();return false">Why list your bakery</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li></ul>
   <a href="#plans" class="btn">View packages</a>
 </div></nav>
 
@@ -187,8 +199,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
     <p>We’re listing our first home bakers now. Tell us what you’re looking for and we’ll let you know when bakers are listed, or apply if you’re a home baker.</p>
     <button class="btn" onclick="openJoin()">Join as a baker</button><button class="btn ghost" onclick="openSoon('find')">Notify me</button>
   </div>
-  <div class="why"><h3>Why list your bakery</h3><div class="wg"><div class="wc"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-mega"/></svg></div><h4>Get found</h4><p>Customers browse bakers by city and speciality.</p></div><div class="wc"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cam"/></svg></div><h4>Show your work</h4><p>Your photos and Instagram, in one place.</p></div><div class="wc"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-chat"/></svg></div><h4>Enquiries on WhatsApp</h4><p>Customers enquire here, and we pass it on to you.</p></div><div class="wc"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-gift"/></svg></div><h4>Festival-ready</h4><p>Be listed in time for Diwali, Christmas and more.</p></div></div>
-    <p class="note">Listing does not guarantee orders. Bakers are listed by Baker’s Bridge, and we don’t make, sell or deliver their products. Home baker? <a href="#" class="lnk" onclick="openJoin();return false">Apply to be listed</a>.</p></div>
+  <p class="note">Listing does not guarantee orders. Bakers are listed by Baker’s Bridge, and we don’t make, sell or deliver their products. Home baker? <a href="#" class="lnk" onclick="openJoin();return false">Apply to be listed</a>.</p>
 </div></section>
 
 <section id="seasonal" class="dc"><span class="deco" style="width:62px;height:62px;right:3%;top:8px;transform:rotate(10deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-gift"/></svg></span><span class="deco" style="width:54px;height:54px;right:11%;top:12px;transform:rotate(-12deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-pipe"/></svg></span><span class="deco" style="width:50px;height:50px;right:18%;top:10px;transform:rotate(6deg)"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cup"/></svg></span><div class="wrap">
@@ -214,15 +225,16 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
     <div><span class="eyebrow">What’s next</span><h2 style="margin-top:8px">Coming soon to Baker’s Bridge</h2></div>
     <p>We’re building more for home bakers. Tell us what you want first and we’ll let you know when it opens.</p>
   </div>
-  <div class="grid4" id="soonGrid"></div>
+  <div class="vm"><div class="vml"><span class="st">Coming soon</span><h3>Vendor marketplace</h3><p>Ingredients, packaging and tools from trusted suppliers.</p><button class="btn" onclick="openSoon('vendors')">Notify me</button></div><div class="vmr"><div class="vt"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-wheat"/></svg></div><span>Ingredients</span></div><div class="vt"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-box"/></svg></div><span>Packaging</span></div><div class="vt"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-whisk"/></svg></div><span>Tools</span></div></div></div>
 </div></section>
 
 <footer><div class="wrap">
-  <div class="fgrid">
-    <div><a href="#" class="logo"><span class="lg big" aria-hidden="true"></span><span class="serif">Baker<i>’</i>s Bridge</span></a><p style="margin-top:10px">Your Home Bakery’s Growth Partner.</p></div>
-    <div><p>Instagram: <a href="https://instagram.com/bakers.bridge" target="_blank" rel="noopener">@bakers.bridge</a></p><p><a href="mailto:bakersbridge5@gmail.com">bakersbridge5@gmail.com</a></p><p>WhatsApp: <a href="https://wa.me/918637621801" target="_blank" rel="noopener">+91 86376 21801</a></p><p>Tamil Nadu</p></div>
+  <div class="fg">
+    <div class="fb"><a href="#" class="logo"><span class="lg big" aria-hidden="true"></span><span class="serif">Baker<i>’</i>s Bridge</span></a><p>Your Home Bakery’s Growth Partner.</p></div>
+    <div><h4 class="fh">Explore</h4><ul class="fl"><li><a href="#" onclick="openAbout();return false">About</a></li><li><a href="#" onclick="openWhy();return false">Why list your bakery</a></li><li><a href="#bakers">Find bakers</a></li><li><a href="#seasonal">Seasonal</a></li><li><a href="#plans">Packages</a></li></ul></div>
+    <div><h4 class="fh">Contact</h4><ul class="fl fcn"><li><span class="ci"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cam"/></svg></span><a href="https://instagram.com/bakers.bridge" target="_blank" rel="noopener">@bakers.bridge</a></li><li><span class="ci"><svg class="ic" viewBox="0 0 64 64"><use href="#i-mail"/></svg></span><a href="mailto:bakersbridge5@gmail.com">bakersbridge5@gmail.com</a></li><li><span class="ci"><svg class="ic" viewBox="0 0 64 64"><use href="#i-phone"/></svg></span><a href="https://wa.me/918637621801" target="_blank" rel="noopener">+91 86376 21801 (WhatsApp)</a></li><li><span class="ci"><svg class="ic" viewBox="0 0 64 64"><use href="#i-pin"/></svg></span><span>Tamil Nadu</span></li></ul></div>
   </div>
-  <div class="copy"><div class="flinks"><a href="#" onclick="openAbout();return false">About</a><a href="#" onclick="openLegal('privacy');return false">Privacy Policy</a><a href="#" onclick="openLegal('terms');return false">Terms &amp; Conditions</a></div>© 2026 BAKER’S BRIDGE. ALL RIGHTS RESERVED.</div>
+  <div class="copy"><div class="flinks"><a href="#" onclick="openLegal('privacy');return false">Privacy Policy</a><a href="#" onclick="openLegal('terms');return false">Terms &amp; Conditions</a></div><span>© 2026 BAKER’S BRIDGE. ALL RIGHTS RESERVED.</span></div>
 </div></footer>
 
 <div id="modal" role="dialog" aria-modal="true" aria-label="Join a plan">
@@ -247,6 +259,13 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
     </div>
   </div>
 </div>
+
+<div id="why" role="dialog" aria-modal="true" aria-label="Why list your bakery"><div class="box legal"><button class="x" aria-label="Close" onclick="closeWhy()">×</button>
+<h3>Why list your bakery</h3><p class="upd">For home bakers in Tamil Nadu</p>
+<div class="wg"><div class="wc"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-mega"/></svg></div><h4>Get found</h4><p>Customers browse bakers by city and speciality.</p></div><div class="wc"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-cam"/></svg></div><h4>Show your work</h4><p>Your photos and Instagram, in one place.</p></div><div class="wc"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-chat"/></svg></div><h4>Enquiries on WhatsApp</h4><p>Customers enquire here, and we pass it on to you.</p></div><div class="wc"><div class="wi"><svg class="ic" viewBox="0 0 64 64"><use href="#i-gift"/></svg></div><h4>Festival-ready</h4><p>Be listed in time for Diwali, Christmas and more.</p></div></div>
+<p class="upd" style="margin-top:16px">Listing does not guarantee orders. Bakers are listed by Baker’s Bridge, and we don’t make, sell or deliver their products.</p>
+<button class="btn" onclick="closeWhy();openJoin()">Apply to be listed</button>
+</div></div>
 
 <div id="about" role="dialog" aria-modal="true" aria-label="About Baker’s Bridge"><div class="box legal"><button class="x" aria-label="Close" onclick="closeAbout()">×</button>
 <h3>About Baker’s Bridge</h3>
@@ -306,9 +325,7 @@ const BAKERS = [
 
 const SOON = [
   {id:"find", name:"Find bakers", tag:"First bakers joining", soon:true, hide:true, desc:""},
-  {id:"health", name:"Baker Business Health Check", tag:"Coming soon", soon:true, desc:"Short questions, a scored report and a 30-day plan."},
-  {id:"vendors", name:"Vendor marketplace", tag:"Coming soon", soon:true, desc:"Ingredients, packaging and tools from trusted suppliers."},
-  {id:"badges", name:"Baker verification badges", tag:"Coming soon", soon:true, desc:"A trusted-baker badge earned through verification."}
+  {id:"vendors", name:"Vendor marketplace", tag:"Coming soon", soon:true, desc:"Ingredients, packaging and tools from trusted suppliers."}
 ];
 
 const FESTIVALS = [
@@ -347,8 +364,6 @@ $("planGrid").innerHTML = PACKAGES.map(p => { let n = 0; return `<div class="pc"
     <button class="btn" onclick="openPlan('${p.id}')">Choose This Package</button>
   </div>`; }).join("");
 
-// Coming soon
-$("soonGrid").innerHTML = SOON.filter(x => !x.hide).map(x => `<div class="sc"><span class="st">${x.tag}</span><h3>${x.name}</h3><p>${x.desc}</p><button class="btn ghost" onclick="openSoon('${x.id}')">Notify me</button></div>`).join("");
 
 // Find bakers
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -373,9 +388,8 @@ fSpec.innerHTML = '<option value="">All specialities</option>' + [...new Set(BAK
 fCity.onchange = fSpec.onchange = renderBakers;
 renderBakers();
 
-const TOOLS = [["whisk","Whisk"],["rollpin","Rolling pin"],["pipe","Piping bag"],["tin","Cake tin"],["cup","Measuring cup"],["cupcake","Cupcakes"],["cake","Celebration cakes"],["hat","Home chefs"]];
-const strip = (id, a) => $(id).innerHTML = [...a, ...a].map(t => `<span><svg class="ic" viewBox="0 0 64 64"><use href="#i-${t[0]}"/></svg>${t[1]}</span>`).join("");
-strip("mqt", TOOLS);
+const WORDS = ["Baker Branding", "Digital Marketing", "Cake Creators", "Chef Spotlight", "Brand Growth", "Social Media", "Homegrown Brands", "Creative Campaigns", "Dessert Artists", "Baking Studios", "Personal Branding", "Content Creation", "Visual Storytelling", "Brand Promotion", "Pastry Chefs", "Sweet Campaigns", "Business Growth", "Creative Bakers", "Online Presence", "Baking Community"];
+$("mqt").innerHTML = [...WORDS, ...WORDS].map(w => `<span>${w}</span>`).join("");
 
 // Subscription flow
 const modal = $("modal"), form = $("lead");
@@ -465,6 +479,11 @@ function openAbout(){ aboutEl.classList.add("on"); }
 function closeAbout(){ aboutEl.classList.remove("on"); }
 aboutEl.addEventListener("click", e => { if (e.target === aboutEl) closeAbout(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeAbout(); });
+const whyEl = $("why");
+function openWhy(){ whyEl.classList.add("on"); }
+function closeWhy(){ whyEl.classList.remove("on"); }
+whyEl.addEventListener("click", e => { if (e.target === whyEl) closeWhy(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeWhy(); });
 if (location.hash === "#privacy" || location.hash === "#terms") openLegal(location.hash.slice(1));
 if (location.hash === "#about") openAbout();
 </script>
