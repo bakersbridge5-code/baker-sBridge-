@@ -51,6 +51,25 @@ section{padding:72px 0}
 .head p{color:var(--gr);max-width:460px;font-size:15px}
 .row{display:flex;gap:16px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
 .fc{flex:0 0 250px;scroll-snap-align:start;background:var(--c1);border:1px solid var(--line);border-radius:18px;padding:22px}
+.fc{position:relative;overflow:hidden}.fc>:not(.bg){position:relative;z-index:1}
+.bg{position:absolute;inset:0;pointer-events:none;color:var(--gold)}
+.bg svg{position:absolute;opacity:.22}
+.bg .a{width:84px;height:84px;right:-6px;top:-4px;animation:fl 6s ease-in-out infinite}
+.bg .b{width:26px;height:26px;right:92px;top:62px;animation:tw 3.2s ease-in-out infinite}
+.bg .c{width:20px;height:20px;right:20px;bottom:20px;animation:tw 4.2s ease-in-out -1.6s infinite}
+.bg .h{width:16px;height:16px;bottom:-24px;opacity:0;animation:hr 7s linear infinite}
+.bg i{position:absolute;top:-8px;width:5px;height:5px;border-radius:50%;background:#fff;opacity:.5;animation:sn 7s linear infinite}
+@keyframes fl{50%{transform:translateY(7px) rotate(5deg)}}
+@keyframes tw{0%,100%{opacity:.1;transform:scale(.85)}50%{opacity:.55;transform:scale(1.2)}}
+@keyframes sn{to{transform:translate(14px,270px)}}
+@keyframes hr{0%{transform:translateY(0);opacity:0}20%{opacity:.45}100%{transform:translateY(-230px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.bg *{animation:none!important}.bg .h{opacity:.3}}
+.th-diwali{background:radial-gradient(circle at 92% 0,rgba(255,150,40,.22),transparent 62%),var(--c1)}.th-diwali .bg{color:#F2A34A}
+.th-christmas{background:radial-gradient(circle at 92% 0,rgba(70,150,100,.24),transparent 62%),var(--c1)}.th-christmas .bg{color:#8FD1A8}
+.th-newyear{background:radial-gradient(circle at 92% 0,rgba(100,120,230,.24),transparent 62%),var(--c1)}.th-newyear .bg{color:#B3BFFF}
+.th-pongal{background:radial-gradient(circle at 92% 0,rgba(235,195,70,.22),transparent 62%),var(--c1)}.th-pongal .bg{color:#EBC85F}
+.th-valentine{background:radial-gradient(circle at 92% 0,rgba(235,90,120,.22),transparent 62%),var(--c1)}.th-valentine .bg{color:#F28BA0}
+.th-mother{background:radial-gradient(circle at 92% 0,rgba(205,145,225,.22),transparent 62%),var(--c1)}.th-mother .bg{color:#DDB1EC}
 .when{display:inline-block;background:var(--gold);color:var(--c0);font-weight:700;font-size:12px;padding:4px 12px;border-radius:999px}
 .fc h3{font-size:26px;margin:14px 0 4px}
 .fc p{color:var(--gr);font-size:14px;min-height:46px}
@@ -171,7 +190,7 @@ select{background:var(--c1);color:var(--iv);border:1px solid var(--line);border-
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-whisk" viewBox="0 0 64 64"><path d="M32 4v14M32 18C14 24 14 50 32 60 50 50 50 24 32 18zM32 18C24 28 24 48 32 60M32 18C40 28 40 48 32 60"/></symbol><symbol id="i-rollpin" viewBox="0 0 64 64"><rect x="14" y="20" width="36" height="24" rx="5"/><path d="M10 32h4M50 32h4"/><rect x="2" y="27" width="8" height="10" rx="3"/><rect x="54" y="27" width="8" height="10" rx="3"/></symbol><symbol id="i-pipe" viewBox="0 0 64 64"><path d="M12 8h40L38 44H26zM26 44l6 12 6-12M20 22c4 3 8-3 12 0s8 3 12 0"/></symbol><symbol id="i-tin" viewBox="0 0 64 64"><ellipse cx="32" cy="20" rx="22" ry="8"/><path d="M10 20v26c0 5 10 9 22 9s22-4 22-9V20M10 33c0 5 10 9 22 9s22-4 22-9"/></symbol><symbol id="i-cup" viewBox="0 0 64 64"><path d="M12 10h32l-4 44H16zM44 20h6c6 0 6 16 0 16h-7M20 24h8M20 34h8M20 44h8"/></symbol><symbol id="i-cupcake" viewBox="0 0 64 64"><path d="M18 34h28l-4 22H22zM14 34c-4-14 8-22 18-22s22 8 18 22zM26 40l1 10M32 40v10M38 40l-1 10"/><circle cx="32" cy="7" r="3"/></symbol><symbol id="i-cake" viewBox="0 0 64 64"><rect x="8" y="36" width="48" height="18" rx="3"/><rect x="16" y="22" width="32" height="14" rx="3"/><path d="M8 44c6 4 10 4 16 0s10 4 16 0 10 4 16 0M32 22v-8M32 14c-3-3 0-8 0-8s3 5 0 8z"/></symbol><symbol id="i-hat" viewBox="0 0 64 64"><path d="M18 42V28C10 26 8 14 17 12 19 4 30 4 32 10 35 3 47 5 47 13 55 15 55 26 47 28V42zM18 50h29"/></symbol><symbol id="i-gift" viewBox="0 0 64 64"><rect x="8" y="26" width="48" height="30" rx="3"/><path d="M6 18h52v8H6zM32 18v38M32 18C22 18 18 8 25 8c6 0 7 10 7 10zM32 18c10 0 14-10 7-10-6 0-7 10-7 10z"/></symbol><symbol id="i-mega" viewBox="0 0 64 64"><path d="M8 26v12h10l24 12V14L18 26zM50 24c4 5 4 11 0 16M18 38l4 16h8l-4-15"/></symbol><symbol id="i-cam" viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="14"/><circle cx="32" cy="32" r="11"/><circle cx="46" cy="18" r="2"/></symbol><symbol id="i-chat" viewBox="0 0 64 64"><path d="M8 12h48v32H30l-12 10V44H8zM22 28h2M31 28h2M40 28h2"/></symbol><symbol id="i-wheat" viewBox="0 0 64 64"><path d="M32 60V22M32 22c-8-2-10-10-8-16 6 1 10 7 8 16zM32 22c8-2 10-10 8-16-6 1-10 7-8 16zM32 38c-8-2-12-8-10-14 6 1 12 5 10 14zM32 38c8-2 12-8 10-14-6 1-12 5-10 14z"/></symbol><symbol id="i-box" viewBox="0 0 64 64"><path d="M8 20L32 8l24 12v26L32 58 8 46zM8 20l24 12 24-12M32 32v26"/></symbol><symbol id="i-mail" viewBox="0 0 64 64"><rect x="6" y="12" width="52" height="40" rx="6"/><path d="M8 16l24 20 24-20"/></symbol><symbol id="i-phone" viewBox="0 0 64 64"><path d="M14 8h12l4 14-8 5c4 8 8 12 16 16l5-8 14 4v12c0 4-4 8-8 8C26 56 8 38 8 14c0-4 2-6 6-6z"/></symbol><symbol id="i-pin" viewBox="0 0 64 64"><path d="M32 58S14 40 14 26a18 18 0 0 1 36 0c0 14-18 32-18 32z"/><circle cx="32" cy="26" r="7"/></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-whisk" viewBox="0 0 64 64"><path d="M32 4v14M32 18C14 24 14 50 32 60 50 50 50 24 32 18zM32 18C24 28 24 48 32 60M32 18C40 28 40 48 32 60"/></symbol><symbol id="i-rollpin" viewBox="0 0 64 64"><rect x="14" y="20" width="36" height="24" rx="5"/><path d="M10 32h4M50 32h4"/><rect x="2" y="27" width="8" height="10" rx="3"/><rect x="54" y="27" width="8" height="10" rx="3"/></symbol><symbol id="i-pipe" viewBox="0 0 64 64"><path d="M12 8h40L38 44H26zM26 44l6 12 6-12M20 22c4 3 8-3 12 0s8 3 12 0"/></symbol><symbol id="i-tin" viewBox="0 0 64 64"><ellipse cx="32" cy="20" rx="22" ry="8"/><path d="M10 20v26c0 5 10 9 22 9s22-4 22-9V20M10 33c0 5 10 9 22 9s22-4 22-9"/></symbol><symbol id="i-cup" viewBox="0 0 64 64"><path d="M12 10h32l-4 44H16zM44 20h6c6 0 6 16 0 16h-7M20 24h8M20 34h8M20 44h8"/></symbol><symbol id="i-cupcake" viewBox="0 0 64 64"><path d="M18 34h28l-4 22H22zM14 34c-4-14 8-22 18-22s22 8 18 22zM26 40l1 10M32 40v10M38 40l-1 10"/><circle cx="32" cy="7" r="3"/></symbol><symbol id="i-cake" viewBox="0 0 64 64"><rect x="8" y="36" width="48" height="18" rx="3"/><rect x="16" y="22" width="32" height="14" rx="3"/><path d="M8 44c6 4 10 4 16 0s10 4 16 0 10 4 16 0M32 22v-8M32 14c-3-3 0-8 0-8s3 5 0 8z"/></symbol><symbol id="i-hat" viewBox="0 0 64 64"><path d="M18 42V28C10 26 8 14 17 12 19 4 30 4 32 10 35 3 47 5 47 13 55 15 55 26 47 28V42zM18 50h29"/></symbol><symbol id="i-gift" viewBox="0 0 64 64"><rect x="8" y="26" width="48" height="30" rx="3"/><path d="M6 18h52v8H6zM32 18v38M32 18C22 18 18 8 25 8c6 0 7 10 7 10zM32 18c10 0 14-10 7-10-6 0-7 10-7 10z"/></symbol><symbol id="i-mega" viewBox="0 0 64 64"><path d="M8 26v12h10l24 12V14L18 26zM50 24c4 5 4 11 0 16M18 38l4 16h8l-4-15"/></symbol><symbol id="i-cam" viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="14"/><circle cx="32" cy="32" r="11"/><circle cx="46" cy="18" r="2"/></symbol><symbol id="i-chat" viewBox="0 0 64 64"><path d="M8 12h48v32H30l-12 10V44H8zM22 28h2M31 28h2M40 28h2"/></symbol><symbol id="i-wheat" viewBox="0 0 64 64"><path d="M32 60V22M32 22c-8-2-10-10-8-16 6 1 10 7 8 16zM32 22c8-2 10-10 8-16-6 1-10 7-8 16zM32 38c-8-2-12-8-10-14 6 1 12 5 10 14zM32 38c8-2 12-8 10-14-6 1-12 5-10 14z"/></symbol><symbol id="i-box" viewBox="0 0 64 64"><path d="M8 20L32 8l24 12v26L32 58 8 46zM8 20l24 12 24-12M32 32v26"/></symbol><symbol id="i-mail" viewBox="0 0 64 64"><rect x="6" y="12" width="52" height="40" rx="6"/><path d="M8 16l24 20 24-20"/></symbol><symbol id="i-phone" viewBox="0 0 64 64"><path d="M14 8h12l4 14-8 5c4 8 8 12 16 16l5-8 14 4v12c0 4-4 8-8 8C26 56 8 38 8 14c0-4 2-6 6-6z"/></symbol><symbol id="i-pin" viewBox="0 0 64 64"><path d="M32 58S14 40 14 26a18 18 0 0 1 36 0c0 14-18 32-18 32z"/><circle cx="32" cy="26" r="7"/></symbol><symbol id="i-diya" viewBox="0 0 64 64"><path d="M8 38h48c0 12-10 20-24 20S8 50 8 38zM32 10c-8 8-8 16 0 20 8-4 8-12 0-20zM32 30v8"/></symbol><symbol id="i-spark" viewBox="0 0 64 64"><path d="M32 6C34 22 42 30 58 32 42 34 34 42 32 58 30 42 22 34 6 32 22 30 30 22 32 6z"/></symbol><symbol id="i-tree" viewBox="0 0 64 64"><path d="M32 4L18 22h8L14 38h10L10 54h44L40 38h10L38 22h8zM28 54v6h8v-6"/></symbol><symbol id="i-burst" viewBox="0 0 64 64"><path d="M32 32V6M32 32L50 14M32 32h26M32 32l18 18M32 32v26M32 32L14 50M32 32H6M32 32L14 14"/><circle cx="32" cy="32" r="3"/></symbol><symbol id="i-pot" viewBox="0 0 64 64"><path d="M16 28h32l-4 26c0 4-8 6-12 6s-12-2-12-6zM12 28h40M22 24c-4-8 2-12 0-18M32 24c-4-8 2-12 0-18M42 24c-4-8 2-12 0-18"/></symbol><symbol id="i-cane" viewBox="0 0 64 64"><path d="M32 6v52M26 18h12M26 32h12M26 46h12M32 6c-10 2-14 8-16 14M32 6c10 2 14 8 16 14"/></symbol><symbol id="i-heart" viewBox="0 0 64 64"><path d="M32 56S8 40 8 24c0-8 6-12 12-12 6 0 10 4 12 8 2-4 6-8 12-8 6 0 12 4 12 12 0 16-24 32-24 32z"/></symbol><symbol id="i-flower" viewBox="0 0 64 64"><circle cx="32" cy="14" r="9"/><circle cx="50" cy="28" r="9"/><circle cx="43" cy="49" r="9"/><circle cx="21" cy="49" r="9"/><circle cx="14" cy="28" r="9"/><circle cx="32" cy="34" r="6"/></symbol></defs></svg>
 
 <nav><div class="wrap">
   <a href="#" class="logo"><span class="lg" aria-hidden="true"></span><span class="serif">Baker<i>’</i>s Bridge</span></a>
@@ -329,17 +348,28 @@ const SOON = [
 ];
 
 const FESTIVALS = [
-  {n:"Diwali",           d:"2026-11-08", t:"Sweet boxes, gifting hampers, festive cakes"},
-  {n:"Christmas",        d:"2026-12-25", t:"Plum cakes, cupcakes, dessert tables"},
-  {n:"New Year’s Eve",   d:"2026-12-31", t:"Party cakes and midnight celebration boxes"},
-  {n:"Pongal",           d:"2027-01-14", t:"Traditional flavours with a modern twist"},
-  {n:"Valentine’s Day", d:"2027-02-14", t:"Couple cakes, heart cakes, gift boxes"},
-  {n:"Mother’s Day",     d:"2027-05-09", t:"Custom cakes and thank-you hampers"}
+  {n:"Diwali",           k:"diwali", d:"2026-11-08", t:"Sweet boxes, gifting hampers, festive cakes"},
+  {n:"Christmas",        k:"christmas", d:"2026-12-25", t:"Plum cakes, cupcakes, dessert tables"},
+  {n:"New Year’s Eve",   k:"newyear", d:"2026-12-31", t:"Party cakes and midnight celebration boxes"},
+  {n:"Pongal",           k:"pongal", d:"2027-01-14", t:"Traditional flavours with a modern twist"},
+  {n:"Valentine’s Day", k:"valentine", d:"2027-02-14", t:"Couple cakes, heart cakes, gift boxes"},
+  {n:"Mother’s Day",     k:"mother", d:"2027-05-09", t:"Custom cakes and thank-you hampers"}
 ];
 /* ===================== */
 
 const $ = id => document.getElementById(id);
 
+const svg = (n, c, st = "") => `<svg class="ic ${c}" style="${st}" viewBox="0 0 64 64"><use href="#i-${n}"/></svg>`;
+const hearts = [14, 42, 70].map((l, i) => svg("heart", "h", `left:${l}%;animation-delay:${-i * 2.3}s`)).join("");
+const snow = Array.from({length: 8}, (_, i) => `<i style="left:${6 + i * 12}%;animation-delay:${-i * 1.2}s;animation-duration:${6 + i % 3}s"></i>`).join("");
+const BG = {
+  diwali: svg("diya", "a") + svg("spark", "b") + svg("spark", "c"),
+  christmas: svg("tree", "a") + snow,
+  newyear: svg("burst", "a") + svg("spark", "b") + svg("spark", "c"),
+  pongal: svg("pot", "a") + svg("cane", "b", "width:34px;height:34px;right:96px;top:70px") + svg("spark", "c"),
+  valentine: svg("heart", "a") + hearts,
+  mother: svg("flower", "a") + svg("flower", "c", "width:26px;height:26px")
+};
 // Seasonal row: upcoming only, soonest first
 const today = new Date(); today.setHours(0,0,0,0);
 $("festRow").innerHTML = FESTIVALS
@@ -348,7 +378,7 @@ $("festRow").innerHTML = FESTIVALS
   .filter(f => f.days >= 0)
   .sort((a,b) => a.days - b.days)
   .slice(0,6)
-  .map(f => `<article class="fc">
+  .map(f => `<article class="fc th-${f.k}"><div class="bg" aria-hidden="true">${BG[f.k]}</div>
       <span class="when">${f.date.toLocaleDateString("en-IN",{day:"numeric",month:"short"})}</span>
       <h3>${f.n}</h3><p>${f.t}</p>
       <span class="cd">${f.days === 0 ? "Today" : f.days + " days to go"}</span>
