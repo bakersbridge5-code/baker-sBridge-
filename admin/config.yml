@@ -20,6 +20,7 @@ collections:
       - { name: title, label: Title (write in English letters, it becomes the web address), widget: string }
       - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
       - { name: description, label: Short description (shown on Google and in the blog list), hint: "Write one or two clear sentences, about 120 to 155 characters.", widget: text }
+      - { name: category, label: Category (optional, for example Costing, Branding, Instagram), widget: string, required: false }
       - { name: image, label: Cover photo (optional), widget: image, required: false }
       - { name: image_alt, label: Describe the cover photo (optional), widget: string, required: false }
       - { name: published, label: Publish this post (turn off to keep it as a draft), widget: boolean, default: true }
