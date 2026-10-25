@@ -1,12 +1,17 @@
 ---
 layout: default
 ---
+<div class="prog" aria-hidden="true"><i></i></div>
 <main><article class="post"><div class="wrap narrow">
   <a class="lnk" href="/blog/">← All posts</a>
+  {% if page.category != blank %}<div style="margin-top:22px"><span class="tag2">{{ page.category | escape }}</span></div>{% endif %}
   <h1>{{ page.title }}</h1>
-  <p class="meta">{{ page.date | date: "%-d %B %Y" }} · Baker’s Bridge</p>
+  {% assign rt = content | number_of_words | divided_by: 200.0 | ceil %}
+  <p class="meta">{{ page.date | date: "%-d %B %Y" }} · {{ rt }} min read · Baker’s Bridge</p>
   {% if page.image != blank %}<img class="cover" src="{{ page.image }}" alt="{{ page.image_alt | default: page.title | escape }}">{% endif %}
   <div class="pbody">{{ content }}</div>
+  <div class="share"><span>Share this post</span><a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/?text={{ page.title | cgi_escape }}%20{{ page.url | absolute_url | cgi_escape }}">WhatsApp</a><button class="btn ghost" type="button" id="cp">Copy link</button></div>
+  {% if page.next or page.previous %}<h3 class="mf">More from the blog</h3><div class="pn">{% if page.next %}<a class="pcard" href="{{ page.next.url }}"><div class="pb"><div class="pm"><span>{{ page.next.date | date: "%-d %b %Y" }}</span></div><h2>{{ page.next.title }}</h2><p>{{ page.next.description }}</p><span class="rm">Read <span>→</span></span></div></a>{% endif %}{% if page.previous %}<a class="pcard" href="{{ page.previous.url }}"><div class="pb"><div class="pm"><span>{{ page.previous.date | date: "%-d %b %Y" }}</span></div><h2>{{ page.previous.title }}</h2><p>{{ page.previous.description }}</p><span class="rm">Read <span>→</span></span></div></a>{% endif %}</div>{% endif %}
   <div class="cta"><h3>Want help growing your home bakery?</h3><p>Baker’s Bridge offers training packages and a bakers directory for home bakers in Tamil Nadu.</p><a class="btn" href="/#plans">See packages</a></div>
 </div></article></main>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"mainEntityOfPage":{{ page.url | absolute_url | jsonify }},"author":{"@type":"Organization","name":"Baker’s Bridge"},"publisher":{"@type":"Organization","name":"Baker’s Bridge","url":"https://www.bakersbridge.in/"}}</script>
