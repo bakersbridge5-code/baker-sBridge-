@@ -8,5 +8,8 @@ defaults:
       type: posts
     values:
       layout: post
+collections:
+  bakers:
+    output: false
 exclude:
   - README.md
