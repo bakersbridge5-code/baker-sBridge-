@@ -5,6 +5,15 @@ backend:
 site_url: https://www.bakersbridge.in
 media_folder: images/blog
 public_folder: /images/blog
+media_libraries:
+  default:
+    config:
+      max_file_size: 10485760
+      transformations:
+        raster_image:
+          format: webp
+          quality: 80
+          width: 1200
 collections:
   - name: posts
     label: Blog posts
@@ -25,3 +34,27 @@ collections:
       - { name: image_alt, label: Describe the cover photo (optional), widget: string, required: false }
       - { name: published, label: Publish this post (turn off to keep it as a draft), widget: boolean, default: true }
       - { name: body, label: Post, widget: markdown }
+  - name: bakers
+    label: Bakers (Find bakers section)
+    label_singular: Baker
+    folder: _bakers
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}} - {{city}}"
+    media_folder: /images/bakers
+    public_folder: /images/bakers
+    fields:
+      - { name: title, label: Brand name, widget: string }
+      - { name: city, label: City, widget: string }
+      - { name: area, label: Area (optional), widget: string, required: false }
+      - { name: specs, label: Specialities, hint: Add 3 to 5 items, widget: list, min: 1, max: 6, field: { name: speciality, label: Speciality, widget: string } }
+      - { name: about, label: One line about the baker (optional), widget: text, required: false, pattern: ['^[\s\S]{0,200}$', "Please keep it under 200 characters"] }
+      - { name: lead, label: Lead time (for example 2 days), widget: string, required: false }
+      - { name: mode, label: Pickup or delivery, widget: select, options: ["Pickup only", "Delivery only", "Pickup and delivery"], default: "Pickup and delivery" }
+      - { name: insta, label: Instagram handle (without the @), widget: string, required: false }
+      - { name: photo, label: Cover photo, widget: image, required: false }
+      - { name: photo_alt, label: Describe the photo (for screen readers), widget: string, required: false }
+      - { name: consent, label: "The baker has agreed in writing (WhatsApp is fine) to be listed on this website", widget: boolean, default: false }
+      - { name: published, label: Show this baker on the website, widget: boolean, default: false }
