@@ -339,10 +339,7 @@ const PACKAGES = [
     {t:"Sales support and business growth", i:["Sales Process Improvement","Sales Support and Customer Follow-Ups","Product and Menu Performance Review","Identifying Growth Opportunities","Marketing Performance Tracking","Monthly Business Review and Action Plan"]}]}
 ];
 
-const BAKERS = [
-  // Add approved bakers here, for example:
-  // {id:"b1", name:"Brand name", city:"Coimbatore", area:"RS Puram", specs:["Cakes","Cupcakes"], about:"One short line about the baker.", lead:"2 days", mode:"Pickup and delivery", insta:"handle", photo:"images/b1.jpg"}
-];
+let BAKERS = [];   // filled from bakers.json, which is managed in the /admin/ page
 
 const SOON = [
   {id:"find", name:"Find bakers", tag:"First bakers joining", soon:true, hide:true, desc:""},
@@ -415,10 +412,17 @@ function renderBakers(){
     <span class="st" style="margin-top:10px">Listed by Baker’s Bridge</span>
     <button class="btn" onclick="openEnquiry('${esc(b.id)}')">Enquire</button></div></article>`).join("");
 }
-fCity.innerHTML = '<option value="">All cities</option>' + [...new Set(BAKERS.map(b => b.city))].map(x => `<option>${esc(x)}</option>`).join("");
-fSpec.innerHTML = '<option value="">All specialities</option>' + [...new Set(BAKERS.flatMap(b => b.specs))].map(x => `<option>${esc(x)}</option>`).join("");
+function setBakers(list){
+  BAKERS = list;
+  fCity.innerHTML = '<option value="">All cities</option>' + [...new Set(BAKERS.map(b => b.city))].map(x => `<option>${esc(x)}</option>`).join("");
+  fSpec.innerHTML = '<option value="">All specialities</option>' + [...new Set(BAKERS.flatMap(b => b.specs))].map(x => `<option>${esc(x)}</option>`).join("");
+  renderBakers();
+}
 fCity.onchange = fSpec.onchange = renderBakers;
-renderBakers();
+setBakers([]);
+fetch("bakers.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : []).then(l => { if (Array.isArray(l)) setBakers(l.filter(b => b && b.name && b.city).map((b, i) => ({
+  id: String(b.id || "b" + i), name: String(b.name), city: String(b.city), area: String(b.area || ""), specs: Array.isArray(b.specs) ? b.specs.map(String) : [],
+  about: String(b.about || ""), lead: String(b.lead || ""), mode: String(b.mode || ""), insta: String(b.insta || ""), photo: /^\/images\//.test(b.photo || "") ? b.photo : ""}))); }).catch(() => {});
 
 const WORDS = ["Baker Branding", "Digital Marketing", "Cake Creators", "Chef Spotlight", "Brand Growth", "Social Media", "Homegrown Brands", "Creative Campaigns", "Dessert Artists", "Baking Studios", "Personal Branding", "Content Creation", "Visual Storytelling", "Brand Promotion", "Pastry Chefs", "Sweet Campaigns", "Business Growth", "Creative Bakers", "Online Presence", "Baking Community"];
 $("mqt").innerHTML = [...WORDS, ...WORDS].map(w => `<span>${w}</span>`).join("");
